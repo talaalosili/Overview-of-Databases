@@ -1,0 +1,194 @@
+**Task1**
+1-What is a Database?
+A database is an organized collection of data that is stored and accessed electronically. It serves as a repository where data is structured in a way that allows for efficient retrieval, management, and updating. Databases are essential for managing large amounts of information and ensuring data integrity and security.
+At its core, a database is designed to handle various operations on data, such as inserting new records, updating existing ones, deleting obsolete data, and querying the database to retrieve specific information. These operations are performed through a Database Management System (DBMS), which provides the tools and interfaces necessary for users to interact with the database.
+
+The concept of a database can be understood through its structure. Most databases organize data into tables, where each table consists of rows and columns. Each row represents a single record, and each column represents a specific attribute of the data. For example, a customer database might have a table where each row represents a customer and columns represent attributes such as name, address, and phone number.
+2-SQL Basics:
+ It allows users to perform a wide range of operations on the data stored within a database, making it an essential tool for database management.
+
+**Task2**
+1- *Relational databases:
+      1. A relational database (or SQL database) stores data in tabular format with rows and columns. The columns contain data attributes and the rows have data values.
+      2.Data Model=>Structured tables with predefined schema.
+      3.Examples=>MySQL, PostgreSQL, Oracle.
+
+   *Non-relational databases:
+       1.non-relational databases (or NoSQL databases) use a variety of data models for accessing and managing data.
+       2.Data Model=>Flexible schema (document, key-value, graph, column).
+       3.Examples=>MongoDB, Cassandra, Redis.
+
+2-What is MySQL?
+MySQL is an open-source relational database management system (RDBMS) that uses Structured Query Language (SQL) for managing and manipulating databases.
+
+    Features of MySQL:
+      1.Open Source.
+      2.High Performance.
+      3.Scalability.
+      4.Cross-Platform: MySQL runs on various operating systems, including Windows, Linux, and macOS, offering flexibility in deployment.
+     5.Ease of Use: MySQL has a straightforward installation process and user-friendly interfaces, such as phpMyAdmin, for database management.
+
+   Typical Use Cases of MySQL:
+    1.Web Applications.
+    2.E-commerce Platforms.
+    3.Data Warehousing.
+
+**Task 3** Numeric Data Types
+1-INT
+id INT = 123;
+
+2-FLOAT
+ CREATE TABLE weather (
+    id INT,
+    temperature FLOAT
+);
+
+INSERT INTO weather (id, temperature) VALUES (1, 36.6);
+
+3-DOUBLE
+CREATE TABLE math_constants (
+    id INT,
+    value DOUBLE
+);
+
+INSERT INTO math_constants (id, value) VALUES (1, 'Pi', 3.141592653589793);
+
+**Task4**String Data Types
+1- CHAR
+CREATE TABLE example_char (
+    id INT,
+    code CHAR(5)
+);
+
+INSERT INTO example_char (id, code) VALUES (1, 'A123 ');
+
+2-VARCHAR
+CREATE TABLE example_varchar (
+    id INT,
+    name VARCHAR(50)
+);
+
+INSERT INTO example_varchar (id, name) VALUES (1, 'John Doe');
+
+3-TEXT
+CREATE TABLE example_text (
+    id INT,
+    review TEXT
+);
+
+INSERT INTO example_text (id, review) VALUES (1, 'This is a detailed review of the product...');
+**Task5**Date and Time Data Types
+1-DATE
+CREATE TABLE example_date (
+    id INT,
+    birthdate DATE
+);
+
+INSERT INTO example_date (id, birthdate) VALUES (1, '1990-05-15');
+
+2-TIME
+CREATE TABLE example_time (
+    id INT,
+    opening_time TIME
+);
+
+INSERT INTO example_time (id, opening_time) VALUES (1, '09:00:00');
+
+3-DATETIME
+CREATE TABLE example_datetime (
+    id INT,
+    event_datetime DATETIME
+);
+
+INSERT INTO example_datetime (id, event_datetime) VALUES (1, '2024-07-14 12:30:45');
+
+**Task6**Primary Keys
+A primary key is a unique identifier for a record in a database table. It is a column, or a set of columns, whose values uniquely identify each row in the table. The primary key must contain unique values and cannot contain NULL values. Each table in a database can have one and only one primary key.
+
+**Task7**Null and Not Null Constraints
+In MySQL, the NULL and NOT NULL constraints are used to control whether a column can store NULL values or not. 
+EX:
+CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    middle_name VARCHAR(50) NULL,
+    last_name VARCHAR(50) NOT NULL
+);
+
+**task8**AUTO_INCREMENT
+AUTO_INCREMENT is a column attribute in MySQL that automatically generates a unique integer value for new rows inserted into a table. This is particularly useful for primary keys or unique identifiers where you need a sequential and unique value for each record.
+
+-When inserting data into the users table, you do not need to specify a value for the id column; MySQL will automatically assign the next available value.
+
+
+EX:
+CREATE TABLE users (
+    id INT AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    PRIMARY KEY (id)
+);
+INSERT INTO users (username, email) VALUES ('john_doe', 'john@example.com');
+INSERT INTO users (username, email) VALUES ('jane_doe', 'jane@example.com');
+
+**Task9**Creating a Database
+CREATE DATABASE StudentDB;
+
+**Task10**Creating a Database
+CREATE TABLE Students (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100),
+    enrollment_date DATE
+);
+
+**Task11**Insert, Update, Delete
+INSERT INTO Students (name, email, enrollment_date)
+VALUES ('John Doe', 'john.doe@example.com', '2024-07-15');
+
+UPDATE Students
+SET email = 'updated.email@example.com'
+WHERE id = 1;
+
+DELETE FROM Students
+WHERE id = 1;
+
+**Task12**Using a Database
+USE StudentDB;
+
+**Task13**Creating a Database and Table
+1.
+CREATE DATABASES PRACTICEDB;
+2.
+CREATE TABLE Employees (
+    emp_id INT PRIMARY KEY AUTO_INCREMENT,
+    emp_name VARCHAR(100) NOT NULL,
+    emp_position VARCHAR(100),
+    hire_date DATE
+);
+
+**Task14**Working with Different Data Types
+CREATE TABLE Products (
+    product_id INT PRIMARY KEY AUTO_INCREMENT,
+    product_name VARCHAR(100) NOT NULL,
+    price DECIMAL(10, 2),
+    in_stock BOOLEAN,
+    release_date DATE,
+    last_updated TIMESTAMP
+     status ENUM('pending', 'processing', 'shipped', 'delivered'),
+    notes TEXT
+);
+
+**Task15**Data Manipulation
+
+INSERT INTO Employees (emp_name, emp_position, hire_date)
+VALUES ('Ali', 'Manager', '2023-05-10'),
+       ('Ahmed', 'Developer', '2023-06-15'),
+       ('omer', 'Designer', '2023-07-01');
+
+UPDATE Employees
+SET emp_position = 'Senior Developer'
+WHERE emp_name = 'Ahmed';
+
+DELETE FROM Employees
+WHERE emp_name = 'Ali';
